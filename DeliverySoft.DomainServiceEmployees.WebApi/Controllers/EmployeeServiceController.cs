@@ -17,7 +17,7 @@ public class EmployeeServiceController : ControllerBase
 
     [HttpPost("GetEmployees")]
     public Task<Employee[]> GetEmployees([FromBody] GetEmployeesWebContract request, CancellationToken cancellationToken)
-        => this.EmployeeService.GetEmployees(request.Ids, request.Request, cancellationToken);
+        => this.EmployeeService.GetEmployees(request.Ids, request.Request, request.Pagination, cancellationToken);
     
     [HttpPost("SaveEmployee")]
     public Task<int> SaveEmployee(SaveEmployeeRequest request)

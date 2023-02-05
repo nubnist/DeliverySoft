@@ -32,29 +32,4 @@ public static class Wrappers
         }
         return response.Content;
     }
-
-    public static async Task SendRequest(Func<Task> method)
-    {
-        try
-        {
-            await method();
-        }
-        catch (Refit.ApiException ex)
-        {
-            if (ex.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                ApiError apiError = null;
-                try
-                {
-                    apiError = JsonConvert.DeserializeObject<ApiError>(ex.Content);
-                }
-                catch (Exception) { }
-                if (apiError != null && apiError.ErrorId != Guid.Empty)
-                {
-                    throw new ApiException(ex.StatusCode, apiError.Message);
-                }
-                throw new ApiException(ex.StatusCode, "Refit exception");
-            }
-        }
-    }
 }

@@ -17,11 +17,12 @@ public class DomainServiceEmployeesClient : IDomainServiceEmployeesClient
         this.Api = api;
     }
 
-    public Task<Employee[]> GetEmployees(ArrayFilter<int> ids = null, GetEmployeesRequest request = null, CancellationToken cancellationToken = default)
+    public Task<Employee[]> GetEmployees(ArrayFilter<int> ids = null, GetEmployeesRequest request = null, PaginationOptions pagination = null, CancellationToken cancellationToken = default)
         => Wrappers.SendRequest(() => this.Api.GetEmployees(new GetEmployeesWebContract()
         {
             Ids = ids,
-            Request = request
+            Request = request,
+            Pagination = pagination
         }, cancellationToken));
 
     public Task<int> SaveEmployee(SaveEmployeeRequest request)

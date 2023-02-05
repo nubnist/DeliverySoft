@@ -1,20 +1,22 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace DeliverySoft.Core.Models;
-
-public class ApiError
+namespace DeliverySoft.Core.Models
 {
-    [JsonConverter(typeof(StringEnumConverter))]
-    public HttpStatusCode StatusCode { get; }
-    public Guid ErrorId { get; }
-    public string Message { get; }
-
-    public ApiError(HttpStatusCode statusCode, Guid errorId, string message)
+    public class ApiError
     {
-        this.StatusCode = statusCode;
-        this.ErrorId = errorId;
-        this.Message = message;
+        [JsonConverter(typeof(StringEnumConverter))]
+        public HttpStatusCode StatusCode { get; }
+        public Guid ErrorId { get; }
+        public string Message { get; }
+
+        public ApiError(HttpStatusCode statusCode, Guid errorId, string message)
+        {
+            this.StatusCode = statusCode;
+            this.ErrorId = errorId;
+            this.Message = message;
+        }
     }
 }

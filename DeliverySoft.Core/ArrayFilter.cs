@@ -1,16 +1,17 @@
-﻿namespace DeliverySoft.Core;
-
-/// <summary>
-/// Фильтр выборки
-/// </summary>
-/// <typeparam name="TEntity"></typeparam>
-public class ArrayFilter<TEntity>
+﻿namespace DeliverySoft.Core
 {
-    public bool Inverted { get; }
-    public TEntity[] Values { get; }
-    public ArrayFilter(bool inverted, TEntity[] values)
+    /// <summary>
+    /// Фильтр выборки
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
+    public class ArrayFilter<TEntity>
     {
-        this.Inverted = inverted;
-        this.Values = values;
+        public bool Inverted { get; }
+        public TEntity[] Values { get; }
+        public ArrayFilter(bool inverted, TEntity[] values)
+        {
+            this.Inverted = inverted;
+            this.Values = values;
+        }
     }
 }

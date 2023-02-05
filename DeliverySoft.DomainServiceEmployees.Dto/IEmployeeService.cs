@@ -12,7 +12,7 @@ public interface IEmployeeService
     /// </summary>
     /// <param name="ids">Фильтр по id сотрудников</param>
     /// <param name="request">Дополнительные параметры выборки</param>
-    Task<Employee[]> GetEmployees(ArrayFilter<int> ids = null, GetEmployeesRequest request = null, CancellationToken cancellationToken = default);
+    Task<Employee[]> GetEmployees(ArrayFilter<int> ids = null, GetEmployeesRequest request = null, PaginationOptions pagination = null, CancellationToken cancellationToken = default);
     
     Task<int> SaveEmployee(SaveEmployeeRequest request);
 }

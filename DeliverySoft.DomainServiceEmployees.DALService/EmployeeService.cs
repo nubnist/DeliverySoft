@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using DeliverySoft.Core;
+using DeliverySoft.DomainService.Helpers;
 using DeliverySoft.DomainServiceEmployees.DALService.Mapping;
 using DeliverySoft.DomainServiceEmployees.Dto;
 using DeliverySoft.DomainServiceEmployees.Dto.Models;
@@ -21,6 +22,7 @@ public class EmployeeService : IEmployeeService
     
     public async Task<Employee[]> GetEmployees(ArrayFilter<int> ids, 
                                                GetEmployeesRequest request, 
+                                               PaginationOptions pagination,
                                                CancellationToken cancellationToken)
     {
         IQueryable<Entities.Employee> query = this.SiteDbContext.Employees;
@@ -32,6 +34,7 @@ public class EmployeeService : IEmployeeService
                 : query.Where(e => ids.Values.Contains(e.Id));
         }
         
+        query = query.PaginationQuery(pagination);
 
         var result = await query.ToArrayAsync(cancellationToken);
         return result.Select(MappingExtensions.Map).ToArray();

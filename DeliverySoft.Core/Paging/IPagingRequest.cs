@@ -1,28 +1,29 @@
 ﻿using System.Net;
 
-namespace DeliverySoft.Core.Paging;
-
-/// <summary>
-/// Абстракция для запроса данных с пагинацией
-/// </summary>
-public interface IPagingRequest
+namespace DeliverySoft.Core.Paging
 {
-    int PageSize { get; }
-    int PageNumber { get; }
-}
-
-public static class PagingExtensions
-{
-    public static void CheckValidPaging(this IPagingRequest pagingRequest)
+    /// <summary>
+    /// Абстракция для запроса данных с пагинацией
+    /// </summary>
+    public interface IPagingRequest
     {
-        if (pagingRequest.PageSize <= 0)
-        {
-            throw new ApiException(HttpStatusCode.BadRequest, "Размер страницы не может быть 0");
-        }
+        int PageSize { get; }
+        int PageNumber { get; }
+    }
 
-        if (pagingRequest.PageNumber < 0)
+    public static class PagingExtensions
+    {
+        public static void CheckValidPaging(this IPagingRequest pagingRequest)
         {
-            throw new ApiException(HttpStatusCode.BadRequest, "Номер страницы меньше 0");
+            if (pagingRequest.PageSize <= 0)
+            {
+                throw new ApiException(HttpStatusCode.BadRequest, "Размер страницы не может быть 0");
+            }
+
+            if (pagingRequest.PageNumber < 0)
+            {
+                throw new ApiException(HttpStatusCode.BadRequest, "Номер страницы меньше 0");
+            }
         }
     }
 }

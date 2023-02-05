@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DeliverySoft.DomainService.ClientHelpers\DeliverySoft.DomainService.ClientHelpers.csproj" />
+      <ProjectReference Include="..\DeliverySoft.DomainServiceClients.Dto\DeliverySoft.DomainServiceClients.Dto.csproj" />
+      <ProjectReference Include="..\DeliverySoft.DomainServiceClients.WebContracts\DeliverySoft.DomainServiceClients.WebContracts.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Refit.Newtonsoft.Json" Version="6.3.2" />
+    </ItemGroup>
+
+</Project>

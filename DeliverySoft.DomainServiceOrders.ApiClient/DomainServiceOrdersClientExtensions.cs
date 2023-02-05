@@ -6,9 +6,9 @@ using Refit;
 
 namespace DeliverySoft.DomainServiceOrders.ApiClient;
 
-public static class DomainServiceEmployeesClientExtensions
+public static class DomainServiceOrdersClientExtensions
 {
-    public static IServiceCollection AddDomainServiceEmployeesClient(this IServiceCollection services, string connectionString)
+    public static IServiceCollection AddDomainServiceOrdersClient(this IServiceCollection services, string connectionString)
     {
         services.AddScoped<IDomainServiceOrdersClient, DomainServiceOrdersClient>();
         services.AddRefitClient<IDomainServiceOrdersClientApi>()
