@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DeliverySoft.DAL.Abstractions\DeliverySoft.DAL.Abstractions.csproj" />
+      <ProjectReference Include="..\DeliverySoft.DomainService.Helpers\DeliverySoft.DomainService.Helpers.csproj" />
+      <ProjectReference Include="..\DeliverySoft.DomainServiceOrders.Dto\DeliverySoft.DomainServiceOrders.Dto.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Binbin.Linq.PredicateBuilder" Version="2.0.1" />
+    </ItemGroup>
+
+</Project>

@@ -11,7 +11,7 @@ public static class DomainServiceEmployeesClientExtensions
     public static IServiceCollection AddDomainServiceEmployeesClient(this IServiceCollection services, string connectionString)
     {
         services.AddScoped<IDomainServiceEmployeesClient, DomainServiceEmployeesClient>();
-        var refitClient = services.AddRefitClient<IDomainServiceEmployeesClientApi>()
+        services.AddRefitClient<IDomainServiceEmployeesClientApi>()
             .ConfigureHttpClient(c =>
             {
                 c.BaseAddress = new Uri(Wrappers.GetUrl(new[] { connectionString, "api/EmployeeService" }));
