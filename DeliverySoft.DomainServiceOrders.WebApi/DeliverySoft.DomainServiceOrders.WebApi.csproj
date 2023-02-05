@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.5.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DeliverySoft.DAL.pgDAL\DeliverySoft.DAL.pgDAL.csproj" />
+      <ProjectReference Include="..\DeliverySoft.DomainServiceOrders.DALService\DeliverySoft.DomainServiceOrders.DALService.csproj" />
+      <ProjectReference Include="..\DeliverySoft.DomainServiceOrders.WebContracts\DeliverySoft.DomainServiceOrders.WebContracts.csproj" />
+    </ItemGroup>
+
+</Project>

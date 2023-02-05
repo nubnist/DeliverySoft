@@ -23,4 +23,7 @@ public class DomainServiceEmployeesClient : IDomainServiceEmployeesClient
             Ids = ids,
             Request = request
         }, cancellationToken));
+
+    public Task<int> SaveEmployee(SaveEmployeeRequest request)
+        => Wrappers.SendRequest(() => this.Api.SaveEmployee(request));
 }

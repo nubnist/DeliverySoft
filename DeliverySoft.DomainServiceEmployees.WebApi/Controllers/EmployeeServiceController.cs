@@ -1,5 +1,6 @@
 ﻿using DeliverySoft.DomainServiceEmployees.Dto;
 using DeliverySoft.DomainServiceEmployees.Dto.Models;
+using DeliverySoft.DomainServiceEmployees.Dto.Requests;
 using DeliverySoft.DomainServiceEmployees.WebContracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,9 +14,12 @@ public class EmployeeServiceController : ControllerBase
     {
         this.EmployeeService = employeeService;
     }
-    
 
     [HttpPost("GetEmployees")]
     public Task<Employee[]> GetEmployees([FromBody] GetEmployeesWebContract request, CancellationToken cancellationToken)
         => this.EmployeeService.GetEmployees(request.Ids, request.Request, cancellationToken);
+    
+    [HttpPost("SaveEmployee")]
+    public Task<int> SaveEmployee(SaveEmployeeRequest request)
+        => this.EmployeeService.SaveEmployee(request);
 }

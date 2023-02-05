@@ -5,7 +5,7 @@ namespace DeliverySoft.DomainServiceOrders.DALService;
 
 public static class OrderServiceExtensions
 {
-    public static IServiceCollection AddDomainServiceEmployees(this IServiceCollection services)
+    public static IServiceCollection AddDomainServiceOrders(this IServiceCollection services)
     {
         services.AddScoped<IOrderService, OrderService>();
         return services;

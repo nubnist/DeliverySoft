@@ -9,5 +9,8 @@ namespace DeliverySoft.DomainServiceEmployees.ApiClient.Api;
 public interface IDomainServiceEmployeesClientApi
 {
     [Post("/GetEmployees")]
-    Task<ApiResponse<Employee[]>> GetEmployees(GetEmployeesWebContract request, CancellationToken cancellationToken);
+    Task<ApiResponse<Employee[]>> GetEmployees([Body] GetEmployeesWebContract request, CancellationToken cancellationToken);
+
+    [Post("/SaveEmployee")]
+    Task<ApiResponse<int>> SaveEmployee([Body] SaveEmployeeRequest request);
 }
