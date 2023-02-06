@@ -31,18 +31,6 @@ public static class IncludeEntitiesExtensions
         return item;
     }
 
-    public static IIncludeEntity<TRequest, TEntity, TProperty> ThenInclude<TRequest, TEntity, TPreviousProperty, TProperty>(this IIncludeEntity<TRequest, TEntity, TPreviousProperty[]> source, Expression<Func<TPreviousProperty, TProperty>> navigationPropertyPath) where TEntity : class
-    {
-        var memberExpression = navigationPropertyPath.Body as MemberExpression;
-        var item = new IncludeEntity<TRequest, TEntity, TProperty>
-        {
-            FromMainObject = false,
-            Parent = source,
-            MemberInfo = memberExpression.Member
-        };
-        return item;
-    }
-
     public static RequestWithInclude<TRequest> ToRequest<TRequest>(this IIncludeEntity<TRequest> data) where TRequest : class
     {
         List<IncludeFields> members = new List<IncludeFields>();

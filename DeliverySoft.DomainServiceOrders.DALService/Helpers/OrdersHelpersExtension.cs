@@ -9,7 +9,7 @@ public static class OrdersHelpersExtension
     /// <summary>
     /// Набоор символов, по которым будет делиться строка на слова
     /// </summary>
-    private static readonly char[] splitChars = { ' ', '_', '-', '.', ',', '/', '@' };
+    private static readonly char[] splitChars = { ' ', ',' };
     
     /// <summary>
     /// Нечеткий поиск. Поисковой запрос разделяется на слова, а далее каждое слово ищется на вхождения в базе
