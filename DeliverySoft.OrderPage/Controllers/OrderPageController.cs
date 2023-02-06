@@ -52,6 +52,9 @@ namespace DeliverySoft.OrderPage.Controllers
         public Task<PagingResponse<OrderModel>> GetOrders([FromQuery] GetOrdersRequest request, CancellationToken cancellationToken = default)
             => this.OrderPage.GetOrders(request, cancellationToken);
 
+        /// <summary>
+        /// Удалить заказ
+        /// </summary>
         [HttpDelete("[action]")]
         public Task DeleteOrder([FromQuery] int id)
             => this.OrderPage.DeleteOrder(id);

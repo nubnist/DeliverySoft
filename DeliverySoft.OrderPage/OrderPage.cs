@@ -171,18 +171,6 @@ public class OrderPage
         return clientId;
     }
     
-    /// <summary>
-    /// Проверка на измененные данные в заказе
-    /// </summary>
-    private bool IsOrderChanged(SaveOrderRequest request, OrdersDto.Models.Order order) 
-        => order == null
-           || request.ClientId != order.ClientId
-           || request.EmployeesIds.Length != order.EmployeesIds.Length 
-           || !request.EmployeesIds.All(ei => order.EmployeesIds.Contains(ei))
-           || request.Title != order.Title
-           || request.DeliveryDate != order.DeliveryDate
-           || request.DeliveryLocation != order.DeliveryLocation;
-
     public async Task<OrderStatusModel[]> GetOrderStatuses(CancellationToken cancellationToken)
     {
         var statuses = await this.OrdersClient.GetOrderStatuses(cancellationToken: cancellationToken);
@@ -201,4 +189,16 @@ public class OrderPage
 
         await this.OrdersClient.DeleteOrder(id);
     }
+    
+    /// <summary>
+    /// Проверка на измененные данные в заказе
+    /// </summary>
+    private bool IsOrderChanged(SaveOrderRequest request, OrdersDto.Models.Order order) 
+        => order == null
+           || request.ClientId != order.ClientId
+           || request.EmployeesIds.Length != order.EmployeesIds.Length 
+           || !request.EmployeesIds.All(ei => order.EmployeesIds.Contains(ei))
+           || request.Title != order.Title
+           || request.DeliveryDate != order.DeliveryDate
+           || request.DeliveryLocation != order.DeliveryLocation;
 }

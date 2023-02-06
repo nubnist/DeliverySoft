@@ -1,8 +1,68 @@
 version: '3.8'
 services:
-  db:
+  domain_service_clients:
+    container_name: 'domain_service_clients'
+    image: 'domain_service_clients'
+    build:
+      context: ../
+      dockerfile: DeliverySoft.DomainServiceClients.WebApi/Dockerfile
+    environment:
+      DatabaseSettings__ConnectionString: 'Host=postgres_delivery_db;Port=5432;Database=delivery_soft_db;Username=postgres;Password=postgres;Include Error Detail=true'
+      DatabaseSettings__LoggingEnabled: true
+    ports:
+      - "7027:80"
+    depends_on:
+      - "postgres_delivery_db"
+      
+  domain_service_employees:
+    container_name: 'domain_service_employees'
+    image: 'domain_service_employees'
+    build:
+      context: ../
+      dockerfile: DeliverySoft.DomainServiceEmployees.WebApi/Dockerfile
+    environment:
+      DatabaseSettings__ConnectionString: 'Host=postgres_delivery_db;Port=5432;Database=delivery_soft_db;Username=postgres;Password=postgres;Include Error Detail=true'
+      DatabaseSettings__LoggingEnabled: true
+    ports:
+      - "7067:80"
+    depends_on:
+      - "postgres_delivery_db"
+      
+  domain_service_orders:
+    container_name: 'domain_service_orders'
+    image: 'domain_service_orders'
+    build:
+      context: ../
+      dockerfile: DeliverySoft.DomainServiceOrders.WebApi/Dockerfile
+    environment:
+      DatabaseSettings__ConnectionString: 'Host=postgres_delivery_db;Port=5432;Database=delivery_soft_db;Username=postgres;Password=postgres;Include Error Detail=true'
+      DatabaseSettings__LoggingEnabled: true
+    ports:
+      - "7185:80"
+    depends_on:
+      - "postgres_delivery_db"
+      
+  delivery_soft_app:
+    container_name: 'delivery_soft_app'
+    image: 'delivery_soft_app'
+    build:
+      context: ../
+      dockerfile: DeliverySoft.APIGateway/Dockerfile
+    environment:
+      ConnectionStrings__DomainServiceEmployees: 'http://domain_service_employees:80'
+      ConnectionStrings__DomainServiceClients: 'http://domain_service_clients:80'
+      ConnectionStrings__DomainServiceOrders: 'http://domain_service_orders:80'
+    ports:
+      - "7148:80"
+    depends_on:
+      - "domain_service_employees"
+      - "domain_service_clients"
+      - "domain_service_orders"
+        
+  postgres_delivery_db:
+    container_name: 'postgres_delivery_db'
     image: postgres:15.1-alpine
-    #restart: always
+    restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -13,6 +73,7 @@ services:
     volumes:
       - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
       - postgres-db:/data/postgres
+        
 volumes:
   postgres-db:
     driver: local
