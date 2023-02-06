@@ -26,4 +26,8 @@ public class OrderServiceController : ControllerBase
     [HttpGet("GetOrderStatuses")]
     public Task<OrderStatus[]> GetOrderStatuses(CancellationToken cancellationToken)
         => this.OrderService.GetOrderStatuses(cancellationToken);
+    
+    [HttpDelete("[action]/{id}")]
+    public Task DeleteOrder([FromRoute] int id)
+        => this.OrderService.DeleteOrder(id);
 }

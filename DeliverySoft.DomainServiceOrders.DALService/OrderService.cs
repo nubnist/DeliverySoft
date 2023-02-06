@@ -62,7 +62,9 @@ public class OrderService : IOrderService
         }
         else
         {
-            order = await this.SiteDbContext.Orders.FirstOrDefaultAsync(v => v.Id == request.Id);
+            order = await this.SiteDbContext.Orders
+                .Include(o => o.AppointedEmployees)
+                .FirstOrDefaultAsync(v => v.Id == request.Id);
             if (order == null)
             {
                 throw new ApiException(HttpStatusCode.InternalServerError, "Указанная заявка не найдена");
@@ -78,7 +80,7 @@ public class OrderService : IOrderService
 
         if (request.EmployeesIds?.IsDefined == true)
         {
-            this.SiteDbContext.AppointedEmployees.RemoveRange(order.AppointedEmployees);
+            this.SiteDbContext.AppointedEmployees.RemoveRange(order.AppointedEmployees); // Можно оптимизировать, но для простоты пусть будет так
             foreach (var employeeId in request.EmployeesIds.Value)
             {
                 order.AppointedEmployees.Add(new Entities.AppointedEmployee()
@@ -99,5 +101,15 @@ public class OrderService : IOrderService
 
         var result = await query.ToArrayAsync(cancellationToken);
         return result.Select(MappingExtensions.Map).ToArray();
+    }
+
+    public async Task DeleteOrder(int id)
+    {
+        var order = await this.SiteDbContext.Orders
+            .Include(o => o.AppointedEmployees)
+            .FirstOrDefaultAsync(v => v.Id == id);
+
+        this.SiteDbContext.Orders.Remove(order);
+        await this.SiteDbContext.SaveChangesAsync();
     }
 }

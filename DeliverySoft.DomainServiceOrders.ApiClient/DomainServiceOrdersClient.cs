@@ -31,4 +31,7 @@ public class DomainServiceOrdersClient : IDomainServiceOrdersClient
 
     public Task<OrderStatus[]> GetOrderStatuses(CancellationToken cancellationToken = default)
         => Wrappers.SendRequest(() => this.Api.GetOrderStatuses(cancellationToken));
+
+    public Task DeleteOrder(int id)
+        => Wrappers.SendRequest(() => this.Api.DeleteOrder(id));
 }

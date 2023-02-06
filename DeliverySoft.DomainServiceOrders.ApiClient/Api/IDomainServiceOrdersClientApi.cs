@@ -15,4 +15,7 @@ public interface IDomainServiceOrdersClientApi
     
     [Get("/GetOrderStatuses")]
     Task<ApiResponse<OrderStatus[]>> GetOrderStatuses(CancellationToken cancellationToken);
+
+    [Delete("/DeleteOrder/{id}")]
+    Task DeleteOrder(int id);
 }

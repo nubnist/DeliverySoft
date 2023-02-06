@@ -27,6 +27,7 @@ namespace DeliverySoft.DomainServiceOrders.DALService.Mapping
                => memberName switch
                {
                    nameof(Order.Status) => query.Include(p => p.Status).ThenInlcudeQuery(includeMembers, ref index),
+                   nameof(Order.EmployeesIds) => query.Include(p => p.AppointedEmployees),
                    _ => throw new NotImplementedException(),
                });
     }

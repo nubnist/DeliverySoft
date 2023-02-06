@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS "order"(
                                       title VARCHAR(60) NOT NULL,
                                       delivery_date timestamp with time zone NOT NULL,
                                       comment VARCHAR(60),
+                                      delivery_location VARCHAR(60) NOT NULL,
                                       client_id INTEGER REFERENCES client(id) NOT NULL,
                                       status_id INTEGER REFERENCES order_status(id) NOT NULL
 );

@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -20,6 +21,7 @@
       <ProjectReference Include="..\DeliverySoft.DomainServiceClients.ApiClient\DeliverySoft.DomainServiceClients.ApiClient.csproj" />
       <ProjectReference Include="..\DeliverySoft.DomainServiceEmployees.ApiClient\DeliverySoft.DomainServiceEmployees.ApiClient.csproj" />
       <ProjectReference Include="..\DeliverySoft.DomainServiceOrders.ApiClient\DeliverySoft.DomainServiceOrders.ApiClient.csproj" />
+      <ProjectReference Include="..\DeliverySoft.EmployeesPage\DeliverySoft.EmployeesPage.csproj" />
       <ProjectReference Include="..\DeliverySoft.OrderPage\DeliverySoft.OrderPage.csproj" />
     </ItemGroup>
 

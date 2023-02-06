@@ -94,7 +94,7 @@ public class PgDbContext : DbContext, ISiteDbContext
         entity.Property(e => e.OrderId).HasColumnName("order_id");
         entity.HasOne(d => d.Order)
             .WithMany(p => p.AppointedEmployees)
-            .HasForeignKey(d => d.EmployeeId);
+            .HasForeignKey(d => d.OrderId);
 
         entity.HasKey(e => new { e.OrderId, e.EmployeeId });
     }

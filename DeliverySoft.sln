@@ -84,6 +84,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pages", "Pages", "{866FDA97
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliverySoft.OrderPage", "DeliverySoft.OrderPage\DeliverySoft.OrderPage.csproj", "{8BB970BC-6D67-4631-B5B6-7FDBE796EE87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliverySoft.EmployeesPage", "DeliverySoft.EmployeesPage\DeliverySoft.EmployeesPage.csproj", "{96DD9248-2DD3-45AA-B813-2F8049F1E7A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +129,7 @@ Global
 		{7C743250-CD12-477C-BA08-6D691AE0904E} = {9BCF3CD9-8C20-4CC5-AA1B-98D56545D0B8}
 		{866FDA97-E1C5-4CDC-88C6-6344C53F92E0} = {F92D24B3-E86C-4BF3-B2AE-C8F367086304}
 		{8BB970BC-6D67-4631-B5B6-7FDBE796EE87} = {866FDA97-E1C5-4CDC-88C6-6344C53F92E0}
+		{96DD9248-2DD3-45AA-B813-2F8049F1E7A2} = {866FDA97-E1C5-4CDC-88C6-6344C53F92E0}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D6248FCA-8ED0-4C42-8821-2DF26E44ABD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -229,5 +232,9 @@ Global
 		{8BB970BC-6D67-4631-B5B6-7FDBE796EE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BB970BC-6D67-4631-B5B6-7FDBE796EE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BB970BC-6D67-4631-B5B6-7FDBE796EE87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96DD9248-2DD3-45AA-B813-2F8049F1E7A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96DD9248-2DD3-45AA-B813-2F8049F1E7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96DD9248-2DD3-45AA-B813-2F8049F1E7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96DD9248-2DD3-45AA-B813-2F8049F1E7A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
