@@ -26,8 +26,4 @@ public class OrderModel
     /// Разрешено ли редактировать
     /// </summary>
     public bool IsAllowedChange { get; set; }
-    /// <summary>
-    /// Требуется ли комментарий при удалении
-    /// </summary>
-    public bool NeedCommentOnDelete { get; set; }
 }

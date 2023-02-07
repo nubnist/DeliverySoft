@@ -256,7 +256,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"id\": 3,\r\n  \"deliveryLocation\": \"Москва\",\r\n  \"title\": \"Мой первый заказ\",\r\n  \"deliveryDate\": \"2023-04-06T15:15:20.125Z\",\r\n  \"comment\": \"\",\r\n  \"statusId\": 1,\r\n  \"clientId\": 1,\r\n  \"employeesIds\": [\r\n    1\r\n  ] \r\n}",
+					"raw": "{\r\n  \"id\": 3,\r\n  \"deliveryLocation\": \"Москва\",\r\n  \"title\": \"Мой первый заказ\",\r\n  \"deliveryDate\": \"2023-04-06T15:15:20.125Z\",\r\n  \"comment\": \"\",\r\n  \"statusId\": 2,\r\n  \"clientId\": 1,\r\n  \"employeesIds\": [\r\n    1\r\n  ] \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -316,7 +316,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"id\": 3,\r\n  \"deliveryLocation\": \"Москва\",\r\n  \"title\": \"Мой первый заказ\",\r\n  \"deliveryDate\": \"2023-04-06T15:15:20.125Z\",\r\n  \"comment\": \"Захотелось\",\r\n  \"statusId\": 4,\r\n  \"clientId\": 1,\r\n  \"employeesIds\": [\r\n    1\r\n  ] \r\n}",
+					"raw": "{\r\n  \"id\": 3,\r\n  \"deliveryLocation\": \"Москва\",\r\n  \"title\": \"Мой первый заказ\",\r\n  \"deliveryDate\": \"2023-04-06T15:15:20.125Z\",\r\n  \"comment\": \"Захотелось отменить\",\r\n  \"statusId\": 4,\r\n  \"clientId\": 1,\r\n  \"employeesIds\": [\r\n    1\r\n  ] \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -375,7 +375,7 @@
 			"response": []
 		},
 		{
-			"name": "Удаляем заявку 3",
+			"name": "Удаляем заказ  1",
 			"request": {
 				"method": "DELETE",
 				"header": [],

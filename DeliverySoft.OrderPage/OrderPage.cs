@@ -82,7 +82,6 @@ public class OrderPage
         var items = orders.Select(o =>
         {
             bool isAllowedChange = o.Status.AllowedChangeOrderData;
-            bool needCommentOnDelete = o.Status.RequireComment;
             var client = clients.First(c => c.Id == o.ClientId);
 
             var result = new OrderModel()
@@ -98,11 +97,11 @@ public class OrderPage
                 DeliveryDate = o.DeliveryDate,
                 DeliveryLocation = o.DeliveryLocation,
                 IsAllowedChange = isAllowedChange,
-                NeedCommentOnDelete = needCommentOnDelete,
                 Status = new OrderStatusModel()
                 {
                     Id = o.Status.Id,
                     Title = o.Status.Title,
+                    RequireComment = o.Status.RequireComment
                 },
                 Employees = employees.Where(e => o.EmployeesIds.Contains(e.Id)).Select(e => new EmployeeModel()
                 {
@@ -178,7 +177,8 @@ public class OrderPage
         return statuses.Select(c => new OrderStatusModel()
         {
             Id = c.Id,
-            Title = c.Title
+            Title = c.Title,
+            RequireComment = c.RequireComment
         }).ToArray();
     }
 
